@@ -24,10 +24,10 @@ const app = express();
     await mongoose.connect(mongo.uri, mongo.options);
 
     // Setup routes with modules
-    app.use('/', MainModule);
-    app.use('/auth/profile', authenticate, ProfileModule);
-    app.use('/english', authenticate, EnglishModule);
-    app.use('/note', authenticate, NoteModule);
+    app.use('/api', MainModule);
+    app.use('/api/auth/profile', authenticate, ProfileModule);
+    app.use('/api/english', authenticate, EnglishModule);
+    app.use('/api/note', authenticate, NoteModule);
 
     app.listen(port, console.log(`App run on port ${port}`));
 
