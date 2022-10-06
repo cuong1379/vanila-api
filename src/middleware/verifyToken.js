@@ -9,7 +9,7 @@ const authenticate = (request, response, next) => {
     });
   token = token.replace("Bearer ", "");
   try {
-    const verified = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    const verified = jwt.verify(token, process.env.JWT_SECRET_KEY || 'cuong12345');
     if (verified) return next();
   } catch (err) {
     return response.json({
